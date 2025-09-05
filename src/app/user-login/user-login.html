@@ -1,0 +1,71 @@
+<!-- 
+
+<form action="" method="post">
+  <label for="name">Email:</label>
+  <input type="text" placeholder="name" [formControl]="email" id="name" name="name" required>
+   <br>
+   <br>
+  <label for="email">Password:</label>
+  <input type="email" placeholder="email" [formControl]="password" id="email" name="email" required>
+   <br>
+   <br>
+  <button type="button" (click)="displayValue()">Log IN</button>
+
+</form>
+  <br>
+  <br>
+  
+  <router-outlet>
+    <h4>New User ? <a routerLink="/newuser">Sign Up</a></h4>
+  </router-outlet> -->
+
+
+  <!-- login.component.html -->
+<div class="auth-wrap">
+  <div class="glass-card">
+    <form [formGroup]="loginForm" (ngSubmit)="displayValue()" class="auth-form">
+      <h2 class="auth-title">Login</h2>
+
+      <label for="email">Email</label>
+      <input
+        type="email"
+        placeholder="email"
+        id="email"
+        formControlName="email"
+      />
+      
+        @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+          <div  class="error">Please enter a valid email.</div>
+        }
+        
+       
+        
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        placeholder="password"
+        id="password"
+        formControlName="password"
+      />
+
+
+      @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+        <div  class="error">
+        Password must be at least 6 characters.
+      </div>
+      }
+      
+
+      <button type="submit" class="btn-primary" [disabled]="loginForm.invalid">Log In</button>
+    </form>
+
+    <h4 class="alt-action">
+      New user?
+      <a routerLink="/newuser">Sign up</a>
+    </h4>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>

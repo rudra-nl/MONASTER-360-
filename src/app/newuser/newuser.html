@@ -1,0 +1,77 @@
+<router-outlet>
+<div class="auth-wrap">
+  <div class="glass-card">
+    <form [formGroup]="signupForm" (ngSubmit)="createAccount()" class="auth-form">
+      <h2 class="auth-title">Sign Up</h2>
+
+      
+      <label for="name">Name</label>
+      <input
+        type="text"
+        placeholder="Your full name"
+        id="name"
+        formControlName="name"
+      />
+      @if (signupForm.get('name')?.invalid && signupForm.get('name')?.touched) {
+        <div class="error">Name is required.</div>
+      }
+
+      
+      <label for="email">Email</label>
+      <input
+        type="email"
+        placeholder="Enter your email"
+        id="email"
+        formControlName="email"
+      />
+      @if (signupForm.get('email')?.invalid && signupForm.get('email')?.touched) {
+        <div class="error">Please enter a valid email.</div>
+      }
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        placeholder="Create a password"
+        id="password"
+        formControlName="password"
+      />
+      @if (signupForm.get('password')?.invalid && signupForm.get('password')?.touched) {
+        <div class="error">Password must be at least 6 characters.</div>
+      }
+
+      
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        type="password"
+        placeholder="Re-enter password"
+        id="confirmPassword"
+        formControlName="confirmPassword"
+      />
+      @if (signupForm.hasError('mismatch') && signupForm.get('confirmPassword')?.touched) {
+        <div class="error">Passwords must match.</div>
+      }
+
+      <button type="submit" class="btn-primary" [disabled]="signupForm.invalid">
+        <a routerLink="/explore">Sign Up</a>
+      </button>
+    </form>
+
+    <div class="divider">
+      <span>OR</span>
+    </div>
+
+    
+    <button type="button" class="btn-google" (click)="signUpWithGoogle()">
+      <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" />
+      Continue with Google
+    </button>
+
+    <h4 class="alt-action">
+      Already have an account?
+      <a routerLink="/user-login">Log In</a>
+    </h4>
+  </div>
+</div>
+
+</router-outlet>
+

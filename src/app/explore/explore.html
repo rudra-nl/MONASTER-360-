@@ -1,0 +1,43 @@
+<div class="travel-wrap">
+    <img src="image.png" alt="">
+  <div class="glass-card">
+    <form [formGroup]="travelForm" (ngSubmit)="searchAgencies()" class="travel-form">
+      <h2 class="travel-title">Plan Your Trip</h2>
+
+      
+      <label for="presentLocation">Present Location</label>
+      <select id="presentLocation" formControlName="presentLocation">
+        <option value="" disabled>Select your location</option>
+        @for (loc of locations; track loc) {
+          <option [value]="loc">{{ loc }}</option>
+        }
+      </select>
+
+      
+      <label for="destination">Destination</label>
+      <select id="destination" formControlName="destination">
+        <option value="" disabled>Select destination</option>
+        @for (dest of destinations; track dest) {
+          <option [value]="dest">{{ dest }}</option>
+        }
+      </select>
+
+      <button type="submit" class="btn-primary" [disabled]="travelForm.invalid">Search Agencies</button>
+    </form>
+
+    
+    @if (showAgencies) {
+      <div class="agency-list">
+        <h3>Available Travel Agencies</h3>
+        @for (agency of agencies; track agency.name) {
+          <div class="agency-card">
+            <h4>{{ agency.name }}</h4>
+            <p>Vehicle: {{ agency.vehicle }}</p>
+            <p>Fare per person: ₹{{ agency.fare }}</p>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>
+

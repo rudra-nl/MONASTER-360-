@@ -14,29 +14,32 @@
             <!-- <img src="https://www.google.com/maps/place/Sikkim,+India/@26.929248,88.075482,7z/data=!4m6!3m5!1s0x39e6a56a5805eafb:0xa4c4b857c39b5a04!8m2!3d27.3516407!4d88.3239309!16zL20vMDExaHEx?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDkwMi4wIKXMDSoASAFQAw%3D%3D" alt="360° View of a Monastery"> -->
         </div>
         <div class="text-box">
-            <p>Geo-tagged monastery locations with travel routes and nearby attractions.</p>
+            <p>Explore stunning landscapes of vibrant Sikkim</p>
         </div>
     </div>
 </section>
 
 <hr>
-
-<section class="view360">
-    <h2>360° Experience</h2>
+<router-outlet>
+    <section class="view360" routerLink="/ar">
+    <h2>Explore Our Monasteries</h2>
     <div class="view-card">
         <div class="image-container">
             <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/8f/64/9f/ralong-monastery-view.jpg?w=1400&h=-1&s=1" alt="360° View of a Monastery">
         </div>
 
         <div class="text-box">
-            <p>Immerse yourself in breathtaking 360° monastery tours from around the world.</p>
+            <p>Witness the beauty of Sikkim's monasteries through our immersive 360° tours.</p>
         </div>
     </div>
 </section>
 
+</router-outlet>
+
 <hr>
 
-<section class="view360">
+<!-- <router-outlet>
+    <section class="view360" routerLink="/cultural-calendar">
     <h2> Digital Archives</h2>
     <div class="view-card">
         <div class="image-container">
@@ -48,10 +51,29 @@
         </div>
     </div>
 </section>
+</router-outlet> -->
+
+<router-outlet>
+    <section class="view360" routerLink="/digital-murals">
+    <h2>Digital Archives</h2>
+    <div class="view-card">
+        <div class="image-container">
+            <img src="https://culture.sikkim.gov.in/storage/archiveimg/7HJP5MnFU5DRbMVTlGR7Zx065MLkFqbVOh3YT1aR.jpg" alt="360° View of a Monastery">
+        </div>
+
+        <div class="text-box">
+            <p>Scanned manuscripts, murals, and historical documents</p>
+        </div>
+    </div>
+</section>
+
+</router-outlet>
+
 
 <hr>
 
-<section class="view360">
+<router-outlet>
+    <section class="view360" routerLink="/cultural-calendar">
     <h2> Cultural Calendar</h2>
     <div class="view-card">
         <div class="image-container">
@@ -63,6 +85,8 @@
         </div>
     </div>
 </section>
+
+</router-outlet>
 
 
 

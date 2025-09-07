@@ -25,6 +25,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { ApiService } from '../services/api/api';
+// import { Api } from '../services/api/api';
 
 @Component({
   selector: 'app-user-login',
@@ -36,7 +38,7 @@ export class UserLogin {
 
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private api: ApiService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -45,8 +47,21 @@ export class UserLogin {
 
   displayValue() {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value); // you can send this to backend
-      alert(`Email: ${this.loginForm.value.email}, Password: ${this.loginForm.value.password}`);
+      const loginData = this.loginForm.value;
+
+      // ✅ Send loginData to backend via ApiService
+      this.api.loginUser(loginData).subscribe({
+        next: (res) => {
+          console.log('Login success:', res);
+          alert('Login successful!');
+          // Optionally: navigate to dashboard/homepage
+        },
+        error: (err) => {
+          console.error('Login error:', err);
+          alert('Login failed. Please try again.');
+        }
+      });
+
     } else {
       alert('Please fill the form correctly!');
     }

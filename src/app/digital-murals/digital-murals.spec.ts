@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CubeDemo } from './cube-demo';
+import { DigitalMurals } from './digital-murals';
 
-describe('CubeDemo', () => {
-  let component: CubeDemo;
-  let fixture: ComponentFixture<CubeDemo>;
+describe('DigitalMurals', () => {
+  let component: DigitalMurals;
+  let fixture: ComponentFixture<DigitalMurals>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CubeDemo]
+      imports: [DigitalMurals]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CubeDemo);
+    fixture = TestBed.createComponent(DigitalMurals);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

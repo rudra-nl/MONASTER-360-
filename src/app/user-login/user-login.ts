@@ -36,7 +36,7 @@ export class UserLogin {
 
   constructor(private fb: FormBuilder, private api: ApiService) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: this.fb.control('', { nonNullable: true, validators: Validators.required }),
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators, ReactiveFormsModule, V
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { ApiService } from '../services/api/api';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   standalone: true,
@@ -15,7 +15,7 @@ export class Newuser {
 
   signupForm: FormGroup<SignupForm>;
 
-  constructor(private fb: FormBuilder, private api: ApiService,private router: Router) {
+  constructor(private fb: FormBuilder, private api: ApiService) {
     this.signupForm = this.fb.group<SignupForm>({
       name: this.fb.control('', { nonNullable: true, validators: Validators.required }),
       email: this.fb.control('', { nonNullable: true, validators: [Validators.required, Validators.email] }),

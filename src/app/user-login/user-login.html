@@ -20,16 +20,16 @@
        
         
 
-      <label for="password">Password</label>
+      <label for="Password">Password</label>
       <input
-        type="password"
-        placeholder="password"
-        id="password"
-        formControlName="password"
+        type="Password"
+        placeholder="Password"
+        id="Password"
+        formControlName="Password"
       />
 
 
-      @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+      @if (loginForm.get('Password')?.invalid && loginForm.get('Password')?.touched) {
         <div  class="error">
         Password must be at least 6 characters.
       </div>

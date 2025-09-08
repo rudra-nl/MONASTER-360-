@@ -1,6 +1,3 @@
-// import { Component } from '@angular/core';
-// import { FormControl, ReactiveFormsModule } from '@angular/forms';
-// import { RouterLink, RouterOutlet } from '@angular/router';
 
 // @Component({
 //   selector: 'app-user-login',
@@ -26,7 +23,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { ApiService } from '../services/api/api';
-// import { Api } from '../services/api/api';
 
 @Component({
   selector: 'app-user-login',
@@ -49,7 +45,6 @@ export class UserLogin {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;
 
-      // ✅ Send loginData to backend via ApiService
       this.api.loginUser(loginData).subscribe({
         next: (res) => {
           console.log('Login success:', res);

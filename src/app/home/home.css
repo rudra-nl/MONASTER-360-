@@ -1,5 +1,6 @@
 
 .hero {
+    padding-top: 25vh;
     background: url('hero.png') center/cover no-repeat;
     min-height: 70vh;
     display: flex;

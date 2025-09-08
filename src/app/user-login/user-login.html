@@ -1,26 +1,5 @@
-<!-- 
+<router-outlet>
 
-<form action="" method="post">
-  <label for="name">Email:</label>
-  <input type="text" placeholder="name" [formControl]="email" id="name" name="name" required>
-   <br>
-   <br>
-  <label for="email">Password:</label>
-  <input type="email" placeholder="email" [formControl]="password" id="email" name="email" required>
-   <br>
-   <br>
-  <button type="button" (click)="displayValue()">Log IN</button>
-
-</form>
-  <br>
-  <br>
-  
-  <router-outlet>
-    <h4>New User ? <a routerLink="/newuser">Sign Up</a></h4>
-  </router-outlet> -->
-
-
-  <!-- login.component.html -->
 <div class="auth-wrap">
   <div class="glass-card">
     <form [formGroup]="loginForm" (ngSubmit)="displayValue()" class="auth-form">
@@ -57,7 +36,7 @@
       }
       
 
-      <button type="submit" class="btn-primary" [disabled]="loginForm.invalid">Log In</button>
+      <button type="submit" class="btn-primary" [disabled]="loginForm.invalid" >Log In</button>
     </form>
 
     <h4 class="alt-action">
@@ -68,4 +47,4 @@
 </div>
 
 
-<router-outlet></router-outlet>
+</router-outlet>

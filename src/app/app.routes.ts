@@ -27,6 +27,7 @@ import { AR } from './ar/ar';
 import { CulturalCalender } from './cultural-calender/cultural-calender';
 import { DigitalMurals } from './digital-murals/digital-murals';
 import { UserLogin } from './user-login/user-login';
+import { Tourist } from './tourist/tourist';
 export const routes: Routes = [
   
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -44,7 +45,7 @@ export const routes: Routes = [
 
   { path: 'explore', component: Explore },
 
-  { path: '', component: AR},
+  { path: 'tourist', component: Tourist},
 
   // { path: 'explore/digital-murals', component: DigitalMurals}
 

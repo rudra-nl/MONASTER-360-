@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = '/proxy.config.json'; // backend URL
+  private apiUrl = 'http://localhost:8080'; // backend URL
 
   constructor(private http: HttpClient) {}
 

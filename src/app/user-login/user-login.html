@@ -1,42 +1,31 @@
-<router-outlet>
-
-<div class="auth-wrap">
+<div class="auth-wrap" animate.enter="fade-in" animate.leave="fade-out">
   <div class="glass-card">
     <form [formGroup]="loginForm" (ngSubmit)="displayValue()" class="auth-form">
       <h2 class="auth-title">Login</h2>
 
-      <label for="username">Username</label>
+      <label for="email">Email</label>
       <input
-        type="username"
-        placeholder="username"
-        id="username"
-        formControlName="username"
+        type="email"
+        placeholder="Enter your email"
+        id="email"
+        formControlName="email"
       />
-      
-        @if (loginForm.get('username')?.invalid && loginForm.get('username')?.touched) {
-          <div  class="error">Please enter an existing username.</div>
-        }
-        
-       
-        
-
-      <label for="Password">Password</label>
-      <input
-        type="Password"
-        placeholder="Password"
-        id="Password"
-        formControlName="Password"
-      />
-
-
-      @if (loginForm.get('Password')?.invalid && loginForm.get('Password')?.touched) {
-        <div  class="error">
-        Password must be at least 6 characters.
-      </div>
+      @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+        <div class="error">Please enter a valid email.</div>
       }
-      
 
-      <button type="submit" class="btn-primary" [disabled]="loginForm.invalid" >Log In</button>
+      <label for="password">Password</label>
+      <input
+        type="password"
+        placeholder="Enter your password"
+        id="password"
+        formControlName="password"
+      />
+      @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+        <div class="error">Password must be at least 6 characters.</div>
+      }
+
+      <button type="submit" class="btn-primary" [disabled]="loginForm.invalid">Log In</button>
     </form>
 
     <h4 class="alt-action">
@@ -45,6 +34,3 @@
     </h4>
   </div>
 </div>
-
-
-</router-outlet>

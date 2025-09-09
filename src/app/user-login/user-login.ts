@@ -1,43 +1,22 @@
-
-// @Component({
-//   selector: 'app-user-login',
-//   imports: [ReactiveFormsModule, RouterLink, RouterOutlet],
-//   templateUrl: './user-login.html',
-//   styleUrl: './user-login.css'
-// })
-// export class UserLogin {
-//    //Reactive Forms
-
-//   name = new FormControl();
-//   password = new FormControl();
-//   email = new FormControl();
-
-//   displayValue() {
-//     // console.log(this.name.value);
-//     console.log(this.email.value);
-//     console.log(this.password.value);
-//   }
-// }
-
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { ApiService } from '../services/api/api';
 
 @Component({
   selector: 'app-user-login',
-  imports: [RouterOutlet,RouterLink,ReactiveFormsModule],
+  standalone: true,
+  imports: [RouterLink, RouterModule, ReactiveFormsModule],
   templateUrl: './user-login.html',
-  styleUrl: './user-login.css'
+  styleUrls: ['./user-login.css'],
 })
 export class UserLogin {
-
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private api: ApiService) {
+  constructor(private fb: FormBuilder, private api: ApiService, private router: Router) {
     this.loginForm = this.fb.group({
-      username: this.fb.control('', { nonNullable: true, validators: Validators.required }),
-      Password: ['', [Validators.required, Validators.minLength(6)]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -49,17 +28,16 @@ export class UserLogin {
         next: (res) => {
           console.log('Login success:', res);
           alert('Login successful!');
-          // Optionally: navigate to dashboard/homepage
+          this.router.navigate(['/explore']);
         },
         error: (err) => {
           console.error('Login error:', err);
-          alert('Login failed. Please try again.');
-        }
+          alert(`Login failed: ${err.message || 'Please try again.'}`);
+        },
       });
-
     } else {
+      this.loginForm.markAllAsTouched();
       alert('Please fill the form correctly!');
     }
   }
 }
-

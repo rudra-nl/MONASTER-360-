@@ -1,24 +1,15 @@
-
-
-
-
-
-<router-outlet>
-  <nav>
-    <ul>
-        <li class="home"><a routerLink="/"  routerLinkActive="active-link">Home</a></li>
-        
-<li class="user-login" [@if]="!currentUrl().includes('user-login')">
-  <a routerLink="/req/login" routerLinkActive="active-link">
-    <i class="fa-regular fa-circle-user"></i> 
-  </a>
-</li>
-
-    </ul>
-</nav>
-
-
-
-</router-outlet>
-<!-- <app-cube-demo></app-cube-demo> -->
-
+<div class="app-container" animate.enter="app-enter">
+  <header>
+    <nav>
+      <ul>
+        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/req/login" routerLinkActive="active"><i class="fa-solid fa-circle-user"></i></a></li>
+        <!-- <li><a routerLink="/req/signup" routerLinkActive="active">Sign Up</a></li> -->
+        <!-- <li><a routerLink="/explore" routerLinkActive="active">Explore</a></li> -->
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

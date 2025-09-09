@@ -54,10 +54,10 @@ export class Newuser {
     }
   }
 
-  signUpWithGoogle() {
-    console.log('Google Sign-Up Clicked');
-    // TODO: Implement OAuth flow
-  }
+  // signUpWithGoogle() {
+  //   console.log('Google Sign-Up Clicked');
+  //   // TODO: Implement OAuth flow
+  // }
 }
 
 function passwordMatchValidator(control: AbstractControl): ValidationErrors | null {

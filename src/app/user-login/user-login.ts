@@ -15,8 +15,8 @@ export class UserLogin {
 
   constructor(private fb: FormBuilder, private api: ApiService, private router: Router) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      username: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
+      Password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 

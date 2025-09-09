@@ -23,7 +23,7 @@ export class ApiService {
   loginUser(data: { email: string; password: string }) {
   return this.http.post(`${this.apiUrl}/login`, data);
 }
-  signupUser(data: { name: string; email: string; password: string }) {
+  signupUser(data: { username: string; email: string; password: string }) {
   return this.http.post(`${this.apiUrl}/signup`, data);
 
 }

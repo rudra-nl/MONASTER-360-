@@ -7,6 +7,8 @@
   
   .hero {
     height: 155vh; 
+       padding-top: 250px;
+
     background-image: url('culture.png');
     background-size: cover;
     background-position: center;

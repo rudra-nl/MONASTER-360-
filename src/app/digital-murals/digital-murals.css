@@ -8,6 +8,8 @@
   
   .hero {
     height: 65vh; 
+       padding-top: 250px;
+
     background: url('https://hiddenstories.library.utoronto.ca/files/fullsize/537537e4f00ea765d4d4cc8b342506cd.jpg') no-repeat center center/cover;
     display: flex;
     justify-content: center;

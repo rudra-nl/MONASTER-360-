@@ -26,13 +26,13 @@ export class Newuser {
   createAccount() {
     if (this.signupForm.valid) {
       const { name, email, password } = this.signupForm.getRawValue();
-      const signupData = { name, email, password };
+      const signupData = { username:name, email, password };
 
       this.api.signupUser(signupData).subscribe({
         next: (res) => {
           console.log('Account created:', res);
           alert('Account successfully created! Please login.');
-          this.router.navigate(['/req/login']);
+          this.router.navigate(['/explore']);
         },
         error: (err) => {
           console.error('Signup error:', err);

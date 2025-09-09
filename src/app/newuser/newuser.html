@@ -34,13 +34,13 @@
         id="password"
         formControlName="password"
       />
-      @if (signupForm.get('password')?.invalid && signupForm.get('password')?.touched) {
+      @if (signupForm.get('Password')?.invalid && signupForm.get('Password')?.touched) {
         <div class="error">Password must be at least 6 characters.</div>
       }
 
       <label for="confirmPassword">Confirm Password</label>
       <input
-        type="password"
+        type="Password"
         placeholder="Re-enter password"
         id="confirmPassword"
         formControlName="confirmPassword"

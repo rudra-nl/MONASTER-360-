@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = '/api'; // backend URL
+  private apiUrl = '/proxy.config.json'; // backend URL
 
   constructor(private http: HttpClient) {}
 
@@ -20,10 +20,10 @@ export class ApiService {
     return this.http.post(`${this.apiUrl}/users`, user);
   }
 
-  loginUser(data: { email: string; password: string }) {
+  loginUser(data: { email: string; Password: string }) {
   return this.http.post(`${this.apiUrl}/login`, data);
 }
-  signupUser(data: { username: string; email: string; password: string }) {
+  signupUser(data: { username: string; email: string; Password: string }) {
   return this.http.post(`${this.apiUrl}/signup`, data);
 
 }

@@ -18,15 +18,15 @@ export class Newuser {
     this.signupForm = this.fb.group<SignupForm>({
       name: this.fb.control('', { nonNullable: true, validators: Validators.required }),
       email: this.fb.control('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
-      password: this.fb.control('', { nonNullable: true, validators: [Validators.required, Validators.minLength(6)] }),
+      Password: this.fb.control('', { nonNullable: true, validators: [Validators.required, Validators.minLength(6)] }),
       confirmPassword: this.fb.control('', { nonNullable: true, validators: Validators.required }),
     }, { validators: passwordMatchValidator });
   }
 
   createAccount() {
     if (this.signupForm.valid) {
-      const { name, email, password } = this.signupForm.getRawValue();
-      const signupData = { username:name, email, password };
+      const { name, email, Password } = this.signupForm.getRawValue();
+      const signupData = { username:name, email, Password };
 
       this.api.signupUser(signupData).subscribe({
         next: (res) => {
@@ -46,14 +46,14 @@ export class Newuser {
 }
 
 function passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
-  const password = control.get('password')?.value;
+  const Password = control.get('Password')?.value;
   const confirmPassword = control.get('confirmPassword')?.value;
-  return password === confirmPassword ? null : { mismatch: true };
+  return Password === confirmPassword ? null : { mismatch: true };
 }
 
 interface SignupForm {
   name: FormControl<string>;
   email: FormControl<string>;
-  password: FormControl<string>;
+  Password: FormControl<string>;
   confirmPassword: FormControl<string>;
 }

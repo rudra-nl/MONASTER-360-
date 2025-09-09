@@ -15,7 +15,8 @@ import { routes } from './app/app.routes';
 bootstrapApplication(App, {
   providers: [
     provideRouter(routes),
-    provideHttpClient()  
+    provideHttpClient(),  
+    // provideNoopAnimations()
   ]
 });
 
